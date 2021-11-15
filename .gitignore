@@ -10,3 +10,5 @@ flycheck_*
 /coverage.lcov
 /scratch
 /secrets
+
+.idea/
