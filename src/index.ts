@@ -71,7 +71,6 @@ declare global {
 }
 
 /**
- * TODO: document
  * @since 0.0.1
  */
 export class MediaPlayEnabler {
@@ -134,7 +133,7 @@ export class MediaPlayEnabler {
   /**
    * @since 0.0.1
    */
-  static addSourceToVideo(element: HTMLElement, type: string, src: string): void {
+  static #addSourceToVideo(element: HTMLElement, type: string, src: string): void {
     const source: HTMLSourceElement = document.createElement('source')
     source.src = src
     source.type = type
@@ -173,12 +172,12 @@ export class MediaPlayEnabler {
     this.options.videoElement = document.createElement('video')
     this.options.videoElement.setAttribute('title', 'Video for Media Play Enabler')
     this.options.videoElement.setAttribute('playsinline', '')
-    MediaPlayEnabler.addSourceToVideo(
+    MediaPlayEnabler.#addSourceToVideo(
       this.options.videoElement,
       'webm',
       MediaPlayEnabler.#media.webm,
     )
-    MediaPlayEnabler.addSourceToVideo(
+    MediaPlayEnabler.#addSourceToVideo(
       this.options.videoElement,
       'mp4',
       MediaPlayEnabler.#media.mp4,
@@ -205,7 +204,7 @@ export class MediaPlayEnabler {
     }
 
     // Modern browsers return a promise, old ones return nothing
-    const playPromise = this.options.videoElement.play() 
+    const playPromise = this.options.videoElement.play()
     logger.log('Trying to play')
     if (playPromise instanceof Promise) {
       playPromise

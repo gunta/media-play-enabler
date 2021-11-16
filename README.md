@@ -65,3 +65,5 @@ npm install media-play-enabler
 ```typescript
 import { MediaPlayEnabler } from 'media-play-enabler'
 ```
+## API
+See [API Docs](docs/modules/index.ts)

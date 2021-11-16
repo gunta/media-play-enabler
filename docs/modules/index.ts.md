@@ -17,7 +17,7 @@ Added in v0.0.1
 
 - [utils](#utils)
   - [MediaPlayEnabler (class)](#mediaplayenabler-class)
-    - [addSourceToVideo (static method)](#addsourcetovideo-static-method)
+    - [#addSourceToVideo (static method)](#%23addsourcetovideo-static-method)
     - [enablePlay (method)](#enableplay-method)
     - [create (method)](#create-method)
     - [detect (method)](#detect-method)
@@ -29,8 +29,6 @@ Added in v0.0.1
 
 ## MediaPlayEnabler (class)
 
-TODO: document
-
 **Signature**
 
 ```ts
@@ -41,12 +39,12 @@ export declare class MediaPlayEnabler {
 
 Added in v0.0.1
 
-### addSourceToVideo (static method)
+### #addSourceToVideo (static method)
 
 **Signature**
 
 ```ts
-static addSourceToVideo(element: HTMLElement, type: string, src: string): void
+static #addSourceToVideo(element: HTMLElement, type: string, src: string): void
 ```
 
 Added in v0.0.1
