@@ -66,4 +66,4 @@ npm install media-play-enabler
 import { MediaPlayEnabler } from 'media-play-enabler'
 ```
 ## API
-See [API Docs](docs/modules/index.ts)
+See [API Docs](https://gunta.github.io/media-play-enabler/docs/modules/index.ts)
