@@ -5,10 +5,22 @@
     <title>Media Player Enabler - Demo: Simple</title>
   </head>
   <body>
-  <script type="module">
-      import { mediaPlayEnabler} from "../dist/src/index.js"
-      mediaPlayEnabler()
+    <div id="insert-video">Here</div>
 
-  </script>
+    <script type="module">
+      import { MediaPlayEnabler } from '../dist/src/index.js'
+      const enabler = new MediaPlayEnabler()
+
+      enabler.create()
+      enabler.enablePlay()
+      enabler.parentElement = document.getElementById('insert-video')
+
+      setTimeout(() => {
+        console.log('playingdetecting')
+        enabler.detect()
+        // enabler.setVideoSource('http://techslides.com/demos/sample-videos/small.mp4')
+        // enabler.videoElement.play()
+      }, 3000)
+    </script>
   </body>
 </html>
