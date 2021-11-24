@@ -63,6 +63,24 @@ npm install media-play-enabler
 
 ```typescript
 import { MediaPlayEnabler } from 'media-play-enabler'
+
+// Set the parent element for injecting 
+mediaPlayEnabler.parentElement = document.getElementById('insert-video')
+mediaPlayEnabler.canPlay().then((isPlayable) => {
+    if (isPlayable) {
+        // Change movies by changing the source
+        mediaPlayEnabler.videoElement.src = 'movie1.mp4'
+        mediaPlayEnabler.videoElement.play()
+
+        mediaPlayEnabler.videoElement.src = 'movie2.mp4'
+        mediaPlayEnabler.videoElement.play()
+
+        mediaPlayEnabler.videoElement.src = 'movie3.mp4'
+        mediaPlayEnabler.videoElement.play()
+    } else {
+        // Tell user to touch the screen
+    }
+})
 ```
 
 ## API
