@@ -31,26 +31,37 @@
     mediaPlayEnabler.parentElement = document.getElementById('insert-video')
 
     setTimeout(() => {
-        // mediaPlayEnabler.videoElement.src = 'https://vjs.zencdn.net/v/oceans.mp4'
-        // mediaPlayEnabler.videoElement.load()
-        mediaPlayEnabler.detect()
-
-        setTimeout(() => {
-            if (mediaPlayEnabler.playCanBeUsed) {
-                mediaPlayEnabler.videoElement.src = 'https://download.samplelib.com/mp4/sample-5s.mp4'
-                mediaPlayEnabler.videoElement.load()
-            } else {
-                alert("Please touch somewhere")
-                mediaPlayEnabler.detect()
-                if (mediaPlayEnabler.playCanBeUsed) {
+        mediaPlayEnabler.videoElement.load()
+        mediaPlayEnabler.canPlay().then((isPlayable) => {
+            console.log(isPlayable)
+            if (isPlayable) {
+                mediaPlayEnabler.videoElement.src = 'https://vjs.zencdn.net/v/oceans.mp4'
+                mediaPlayEnabler.videoElement.play()
+                setTimeout(() => {
                     mediaPlayEnabler.videoElement.src = 'https://download.samplelib.com/mp4/sample-5s.mp4'
-                    mediaPlayEnabler.videoElement.load()
-                } else {
-                    alert("Cannot be played")
-                }
+                    mediaPlayEnabler.videoElement.play()
+                }, 3000)
+            } else {
+                alert('Please touch the screen')
             }
-            // mediaPlayEnabler.videoElement.play()
-        }, 2000)
+        })
+
+        // setTimeout(() => {
+        //     if (mediaPlayEnabler.playCanBeUsed) {
+        //         mediaPlayEnabler.videoElement.src = 'https://download.samplelib.com/mp4/sample-5s.mp4'
+        //         mediaPlayEnabler.videoElement.load()
+        //     } else {
+        //         alert("Please touch somewhere")
+        //         mediaPlayEnabler.detect()
+        //         if (mediaPlayEnabler.playCanBeUsed) {
+        //             mediaPlayEnabler.videoElement.src = 'https://download.samplelib.com/mp4/sample-5s.mp4'
+        //             mediaPlayEnabler.videoElement.load()
+        //         } else {
+        //             alert("Cannot be played")
+        //         }
+        //     }
+        //     // mediaPlayEnabler.videoElement.play()
+        // }, 2000)
 
         // setTimeout(() => {
         //     mediaPlayEnabler.videoElement.src = 'https://download.samplelib.com/mp4/sample-5s.mp4'
