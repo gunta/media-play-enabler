@@ -17,10 +17,10 @@ Added in v0.0.1
 
 - [utils](#utils)
   - [MediaPlayEnabler (class)](#mediaplayenabler-class)
-    - [#addSourceToVideo (static method)](#%23addsourcetovideo-static-method)
+    - [addSourceToVideo (method)](#addsourcetovideo-method)
     - [enablePlay (method)](#enableplay-method)
     - [create (method)](#create-method)
-    - [detect (method)](#detect-method)
+    - [canPlay (method)](#canplay-method)
     - [playCanBeUsed (property)](#playcanbeused-property)
 
 ---
@@ -39,22 +39,25 @@ export declare class MediaPlayEnabler {
 
 Added in v0.0.1
 
-### #addSourceToVideo (static method)
+### addSourceToVideo (method)
 
 **Signature**
 
 ```ts
-static #addSourceToVideo(element: HTMLElement, type: string, src: string): void
+private addSourceToVideo(
+    element: HTMLVideoElement /*, type: string, */,
+    src: string,
+  ): void
 ```
 
-Added in v0.0.1
+Added in v0.0.2
 
 ### enablePlay (method)
 
 **Signature**
 
 ```ts
-public enablePlay(): void
+private enablePlay(): void
 ```
 
 Added in v0.0.1
@@ -64,17 +67,17 @@ Added in v0.0.1
 **Signature**
 
 ```ts
-public create(): void
+private create(): void
 ```
 
 Added in v0.0.1
 
-### detect (method)
+### canPlay (method)
 
 **Signature**
 
 ```ts
-public detect(): void
+public async canPlay(): Promise<boolean>
 ```
 
 Added in v0.0.1

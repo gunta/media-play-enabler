@@ -1,49 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"/>
+  <head>
+    <meta charset="UTF-8" />
     <title>Media Player Enabler - Demo: Video.js</title>
-    <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet"/>
+    <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
     <style>
-        #insert-video {
-            position: absolute;
-            top: 5%;
-            left: 5%;
-            width: 90%;
-            background-color: lightgray;
-        }
+      #insert-video {
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        width: 90%;
+        background-color: lightgray;
+      }
 
-        video {
-            width: 100%;
-            height: 100%;
-        }
+      video {
+        width: 100%;
+        height: 100%;
+      }
     </style>
-</head>
-<body>
-<script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+  </head>
+  <body>
+    <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
 
-<div id="insert-video"></div>
+    <div id="insert-video"></div>
 
-<script type="module">
-    import {MediaPlayEnabler} from '../dist/src/index.js'
+    <script type="module">
+      import { MediaPlayEnabler } from '../dist/src/index.js'
 
-    const mediaPlayEnabler = new MediaPlayEnabler()
-    mediaPlayEnabler.parentElement = document.getElementById('insert-video')
+      const mediaPlayEnabler = new MediaPlayEnabler()
+      mediaPlayEnabler.parentElement = document.getElementById('insert-video')
 
-    setTimeout(() => {
+      setTimeout(() => {
         mediaPlayEnabler.videoElement.load()
         mediaPlayEnabler.canPlay().then((isPlayable) => {
-            console.log(isPlayable)
-            if (isPlayable) {
-                mediaPlayEnabler.videoElement.src = 'https://vjs.zencdn.net/v/oceans.mp4'
-                mediaPlayEnabler.videoElement.play()
-                setTimeout(() => {
-                    mediaPlayEnabler.videoElement.src = 'https://download.samplelib.com/mp4/sample-5s.mp4'
-                    mediaPlayEnabler.videoElement.play()
-                }, 3000)
-            } else {
-                alert('Please touch the screen')
-            }
+          console.log(isPlayable)
+          if (isPlayable) {
+            mediaPlayEnabler.videoElement.src = 'https://vjs.zencdn.net/v/oceans.mp4'
+            mediaPlayEnabler.videoElement.play()
+            setTimeout(() => {
+              mediaPlayEnabler.videoElement.src =
+                'https://download.samplelib.com/mp4/sample-5s.mp4'
+              mediaPlayEnabler.videoElement.play()
+            }, 3000)
+          } else {
+            alert('Please touch the screen')
+          }
         })
 
         // setTimeout(() => {
@@ -70,7 +71,7 @@
         //     // enabler.videoElement.play()
         //
         // }, 5000)
-    }, 3000)
-</script>
-</body>
+      }, 3000)
+    </script>
+  </body>
 </html>

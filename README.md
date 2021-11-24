@@ -50,9 +50,8 @@ On **the rest**, it doesn't work even without audio.
 ## Usage
 
 1. Create a MediaPlayEnabler instance as early as possible (in order to have more chances to intercept any user gesture).
-2. Call MediaPlayEnabler `.canPlay()` to know if a video can be played.
-3. Listen to `videocanplay` event to know when a video can be played.
-4. Change source of the MediaPlayEnabler `.source` instance to change videos.
+2. Call MediaPlayEnabler `.canPlay()` to receive a promise to know if a video can be played.
+3. Use `.videoElement.play()`, `.videoElement.pause()` to control the video and `.videoElement.src = 'movie.mp4'` to change videos.
 
 ## Install
 
@@ -65,5 +64,7 @@ npm install media-play-enabler
 ```typescript
 import { MediaPlayEnabler } from 'media-play-enabler'
 ```
+
 ## API
+
 See [API Docs](https://gunta.github.io/media-play-enabler/docs/modules/index.ts)
