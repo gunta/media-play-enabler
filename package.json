@@ -1,6 +1,6 @@
 {
   "name": "media-play-enabler",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.4",
   "description": "Enables video play programmatically on modern browsers that require user input events",
   "keywords": [
     "media",
