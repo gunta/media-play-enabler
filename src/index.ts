@@ -103,13 +103,16 @@ export class MediaPlayEnabler {
       ((window.DocumentTouch as boolean) && document instanceof window.DocumentTouch) ??
       navigator.maxTouchPoints > 0 ??
       window.navigator.msMaxTouchPoints > 0
+
+    this.create()
+    this.enablePlay()
   }
 
   public set parentElement(parentElement: HTMLElement | undefined) {
     this.options.parentElement = parentElement
     if (this.options.videoElement && this.options.parentElement) {
       if (this.options.parentElement.hasChildNodes()) {
-        logger.log('Parent element has child nodes, removing them')
+        //logger.log('Parent element has child nodes, removing them')
         // while (this.options.parentElement.firstChild) {
         //   this.options.parentElement.removeChild(this.options.parentElement.firstChild)
         //}
@@ -159,14 +162,13 @@ export class MediaPlayEnabler {
         once: true, // we only want to add this listener once
       },
     )
-    logger.log(eventType)
   }
 
   /**
    * @since 0.0.1
    */
   public create(): void {
-    logger.log('Creating')
+    logger.log('Creating MediaPlayEnabler')
     // this.videoElementBlank = false
     // this.videoElementWithAudio = false
     this.options.videoElement = document.createElement('video')
@@ -186,9 +188,9 @@ export class MediaPlayEnabler {
     this.options.videoElement.addEventListener('loadedmetadata', () => {
       if (this.options.videoElement) {
         if (this.options.videoElement.duration <= 1) {
-          logger.log('Small detector video is webm source')
+          logger.log('video source is webm')
         } else {
-          logger.log('Small detector video is mp4 source')
+          logger.log('video source is mp4')
         }
       }
     })
@@ -198,6 +200,8 @@ export class MediaPlayEnabler {
    * @since 0.0.1
    */
   public detect(): void {
+    // const enablerPromise = new Promise<string>((resolve, reject) = {})
+
     if (!this.options.videoElement) {
       logger.error('Video element already exists')
       return
@@ -205,7 +209,7 @@ export class MediaPlayEnabler {
 
     // Modern browsers return a promise, old ones return nothing
     const playPromise = this.options.videoElement.play()
-    logger.log('Trying to play')
+    logger.log('Detector trying to play')
     if (playPromise instanceof Promise) {
       playPromise
         .then(() => {
@@ -220,8 +224,8 @@ export class MediaPlayEnabler {
         .finally(() => {
           // TODO check if it works here
           if (this.options.videoElement) {
-            logger.log('Finally paused')
-            this.options.videoElement.pause()
+            // logger.log('Pausing detector')
+            // this.options.videoElement.pause()
           }
         })
     } else {
